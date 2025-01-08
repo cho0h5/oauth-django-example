@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>42 OAuth LogIn</title>
+</head>
+<body>
+    <h1>42 OAuth LogIn Demo</h1>
+
+    {% if user_authenticated %}
+        <p>Hello, {{ user_name }}</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">LogOut</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">
+            <button>LogIn in 42</button>
+        </a>
+    {% endif %}
+</body>
+</html>
